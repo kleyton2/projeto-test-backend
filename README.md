@@ -1,26 +1,3 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
@@ -59,40 +36,191 @@ $ npm run test:cov
 
 ## Deployment
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+📋 Descrição do Projeto
+Este projeto é uma API RESTful desenvolvida em NestJS para gerenciamento de produtos e autenticação de usuários. Ele utiliza TypeORM para a persistência de dados em um banco de dados MySQL/MariaDB e Passport para autenticação via JWT (JSON Web Token).
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+🚀 Instalação e Execução
+Pré-requisitos
+Node.js (v18 ou superior)
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+MySQL/MariaDB (ou outro banco de dados suportado pelo TypeORM)
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+NPM ou Yarn (gerenciadores de pacotes)
 
-## Resources
+Passos para Instalação
+Clone o repositório:
 
-Check out a few resources that may come in handy when working with NestJS:
+git clone https://github.com/kleyton2/projeto-test-backend
+cd projeto-test-backend
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Instale as dependências:
 
-## Support
+npm install
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+🛠 Decisões Técnicas
+1. NestJS
+Escolhido por sua arquitetura modular e escalabilidade.
 
-## Stay in touch
+Facilita a criação de APIs RESTful com suporte a injeção de dependências.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+2. TypeORM
+Utilizado para a persistência de dados, permitindo a definição de entidades e relacionamentos de forma simples.
 
-## License
+1. MySQL/MariaDB
+Escolhido como banco de dados principal por sua confiabilidade e suporte a transações.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+A tabela produtos armazena informações sobre os produtos, enquanto a tabela users gerencia os usuários do sistema.
+
+4. Autenticação com JWT
+Implementada usando Passport e JWT para garantir segurança nas rotas protegidas.
+
+O token JWT é gerado durante o login e deve ser enviado no cabeçalho das requisições para acessar rotas protegidas.
+
+5. Validação de Dados
+Utilização de class-validator e class-transformer para validação de DTOs.
+
+Validações personalizadas para garantir a integridade dos dados (por exemplo, email válido, senha forte).
+
+6. Documentação com Swagger
+A API é documentada automaticamente usando o Swagger
+
+
+📡 Exemplos de Requisições e Respostas
+1. Autenticação
+Login
+Requisição:
+
+http
+
+POST /auth/login
+Content-Type: application/json
+
+{
+  "email": "usuario@example.com",
+  "password": "senha123"
+}
+Resposta:
+
+json
+
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+2. Produtos
+Listar Todos os Produtos
+Requisição:
+
+http
+
+GET /produtos
+Authorization: Bearer <token>
+Resposta:
+
+json
+
+[
+  {
+    "id": "123e4567-e89b-12d3-a456-426614174000",
+    "codigo": "P001",
+    "nome": "Produto 1",
+    "codigo_barras": "7891234567890",
+    "quantidade": 100.00,
+    "preco": 19.99,
+    "created_at": "2023-10-01T12:00:00.000Z",
+    "updated_at": "2023-10-01T12:00:00.000Z"
+  }
+]
+Criar um Produto
+Requisição:
+
+http
+
+POST /produtos
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "codigo": "P002",
+  "nome": "Produto 2",
+  "codigo_barras": "7891234567891",
+  "quantidade": 50.00,
+  "preco": 29.99
+}
+Resposta:
+
+json
+
+{
+  "id": "123e4567-e89b-12d3-a456-426614174001",
+  "codigo": "P002",
+  "nome": "Produto 2",
+  "codigo_barras": "7891234567891",
+  "quantidade": 50.00,
+  "preco": 29.99,
+  "created_at": "2023-10-01T12:00:00.000Z",
+  "updated_at": "2023-10-01T12:00:00.000Z"
+}
+Atualizar um Produto
+Requisição:
+
+http
+
+PUT /produtos/P002
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "nome": "Produto 2 Atualizado",
+  "preco": 39.99
+}
+Resposta:
+
+json
+
+{
+  "id": "123e4567-e89b-12d3-a456-426614174001",
+  "codigo": "P002",
+  "nome": "Produto 2 Atualizado",
+  "codigo_barras": "7891234567891",
+  "quantidade": 50.00,
+  "preco": 39.99,
+  "created_at": "2023-10-01T12:00:00.000Z",
+  "updated_at": "2023-10-01T12:05:00.000Z"
+}
+Deletar um Produto
+Requisição:
+
+http
+
+DELETE /produtos/P002
+Authorization: Bearer <token>
+Resposta:
+
+http
+
+HTTP/1.1 200 OK
+3. Usuários
+Criar um Usuário
+Requisição:
+
+http
+
+POST /users
+Content-Type: application/json
+
+{
+  "email": "novo@example.com",
+  "password": "senha123"
+}
+Resposta:
+
+json
+
+{
+  "id": "123e4567-e89b-12d3-a456-426614174002",
+  "email": "novo@example.com",
+  "created_at": "2023-10-01T12:00:00.000Z",
+  "updated_at": "2023-10-01T12:00:00.000Z"
+}
+
+## readme criado com auxilio de IA.
